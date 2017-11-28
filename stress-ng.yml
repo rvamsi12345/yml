@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: stress-ng
+spec:
+ replicas: 2
+ selector:
+  name: stress-ng
+ template:
+  metadata:
+   labels:
+    name: stress-ng
+  spec:
+   containers:
+    - name: stress-ng
+      image: vamsi12345/stress-ng
+   terminationGracePeriodSeconds: 1200
+
